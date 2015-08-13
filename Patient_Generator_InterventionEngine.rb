@@ -70,7 +70,7 @@ begin
 ##This allows the script to continue to run if it gets stuck for some reason (I have not yet identified the reason it gets stuck)
 ##The script should not take more than ~5 seconds, but I set it to 30 seconds in case the server is slow
 begin
-#Timeout.timeout(30) do
+Timeout.timeout(30) do
 
 
 
@@ -2668,30 +2668,30 @@ possibleFileNames = [
                      {name: "FallingHistory",         type: "Observation"},
                      {name: "FallingRiskTest",        type: "Observation"},
                      {name: "CauseOfDeath",           type: "Observation"},
-  #                   {name: "Condition1",             type: "Condition"},
-  #                   {name: "Condition2",             type: "Condition"},
-  #                   {name: "Condition3",             type: "Condition"},
-  #                   {name: "Condition4",             type: "Condition"},
-  #                   {name: "Condition5",             type: "Condition"},
-  #                   {name: "Condition6",             type: "Condition"},
-  #                   {name: "Condition7",             type: "Condition"},
-  #                   {name: "Condition8",             type: "Condition"},
-  #                   {name: "Condition9",             type: "Condition"},
-  #                   {name: "Condition10",            type: "Condition"},
-  #                   {name: "Condition11",            type: "Condition"},
-  #                   {name: "Condition12",            type: "Condition"},
-#                     {name: "MedicationStatement1",   type: "MedicationStatement"},
-#                     {name: "MedicationStatement2",   type: "MedicationStatement"},
-#                     {name: "MedicationStatement3",   type: "MedicationStatement"},
-#                     {name: "MedicationStatement4",   type: "MedicationStatement"},
-#                     {name: "MedicationStatement5",   type: "MedicationStatement"},
-#                     {name: "MedicationStatement6",   type: "MedicationStatement"},
-#                     {name: "MedicationStatement7",   type: "MedicationStatement"},
-#                     {name: "MedicationStatement8",   type: "MedicationStatement"},
-#                     {name: "MedicationStatement9",   type: "MedicationStatement"},
-#                     {name: "MedicationStatement10",  type: "MedicationStatement"},
-#                     {name: "MedicationStatement11",  type: "MedicationStatement"},
-#                     {name: "MedicationStatement12",  type: "MedicationStatement"},
+                     {name: "Condition1",             type: "Condition"},
+                     {name: "Condition2",             type: "Condition"},
+                     {name: "Condition3",             type: "Condition"},
+                     {name: "Condition4",             type: "Condition"},
+                     {name: "Condition5",             type: "Condition"},
+                     {name: "Condition6",             type: "Condition"},
+                     {name: "Condition7",             type: "Condition"},
+                     {name: "Condition8",             type: "Condition"},
+                     {name: "Condition9",             type: "Condition"},
+                     {name: "Condition10",            type: "Condition"},
+                     {name: "Condition11",            type: "Condition"},
+                     {name: "Condition12",            type: "Condition"},
+                     {name: "MedicationStatement1",   type: "MedicationStatement"},
+                     {name: "MedicationStatement2",   type: "MedicationStatement"},
+                     {name: "MedicationStatement3",   type: "MedicationStatement"},
+                     {name: "MedicationStatement4",   type: "MedicationStatement"},
+                     {name: "MedicationStatement5",   type: "MedicationStatement"},
+                     {name: "MedicationStatement6",   type: "MedicationStatement"},
+                     {name: "MedicationStatement7",   type: "MedicationStatement"},
+                     {name: "MedicationStatement8",   type: "MedicationStatement"},
+                     {name: "MedicationStatement9",   type: "MedicationStatement"},
+                     {name: "MedicationStatement10",  type: "MedicationStatement"},
+                     {name: "MedicationStatement11",  type: "MedicationStatement"},
+                     {name: "MedicationStatement12",  type: "MedicationStatement"},
                      {name: "Procedure1",             type: "Procedure"},
                      {name: "Procedure2",             type: "Procedure"},
                      {name: "Procedure3",             type: "Procedure"},
@@ -2731,24 +2731,24 @@ puts "--------------------------------------------------------------------------
 #This closes the 'Timeout' loop
 end
 
-##This code prevents the script from getting stuck (sometimes it just loads forever with no output)
-##This code just exits the script and deletes all resources that were posted before to the server before it got stuck (so there are not like half-patients on the server)
-#rescue Timeout::Error
-#  if defined?($postedFiles)
-#    if $postedFiles.present?
-#      $postedFiles.each do |postedFile|
-#        begin
-#          RestClient.delete "#{postedFile}"
-#          puts "#{postedFile} was deleted after the timeout error occured\n"
-#        rescue
-#          puts "#{postedFile} was not found so it couldn't be deleted"
-#        end
-#      end
-#    else
-#      puts "There was a timeout error, but no files were posted to the server\n"
-#    end
-#  end
-#end
+#This code prevents the script from getting stuck (sometimes it just loads forever with no output)
+#This code just exits the script and deletes all resources that were posted before to the server before it got stuck (so there are not like half-patients on the server)
+rescue Timeout::Error
+  if defined?($postedFiles)
+    if $postedFiles.present?
+      $postedFiles.each do |postedFile|
+        begin
+          RestClient.delete "#{postedFile}"
+          puts "#{postedFile} was deleted after the timeout error occured\n"
+        rescue
+          puts "#{postedFile} was not found so it couldn't be deleted"
+        end
+      end
+    else
+      puts "There was a timeout error, but no files were posted to the server\n"
+    end
+  end
+end
 
 #The following bit opens binding.pry if there is an error anywhere in the loop
 rescue Exception => e
