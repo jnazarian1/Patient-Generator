@@ -1,6 +1,6 @@
 # Patient-Generator
 
-This repository includes a Patient Generator that will create FHIR-format json patients
+This repository includes a Patient Generator that will create FHIR-format JSON patients
 
 This script creates geriatric patients (ages 65-85) and assigns them conditions that are more likely to occur in elderly patients. Along with conditions, the script will generate other FHIR-format resources such as corresponding medications and medication statements, relevant procedures and encounters, allergies, and observations including drinkingStatus, smokingStatus, bloodPressure, cholesterol levels, height/weight/BMI and blood glucose levels.
 
