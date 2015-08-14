@@ -11,17 +11,21 @@ Notice there are two Patient_Generator files: one is compatible with a Smart on 
 # Smart-on-FHIR Server Details
 
 For the Patient Generator to upload patients to a Smart-on-FHIR server, a few things must be running in the background:
-
+• Smart-on-FHIR server (either local or external--see documentation at https://github.com/smart-on-fhir)
+• Run this code from "api-server" directory in Desktop
+  • $postgres -D /usr/local/var/postgres
+  • $./grailsw run-app
 
 
 # Intervention-Engine Server Details
 
 For the Patient Generator to upload patients to an Intervention Engine server, a few things must be running in the background:
+• Intervention Engine server (either local or external--see documentation at https://github.com/intervention-engine/ie)
+• Risk Service Server (see documentation at https://github.com/intervention-engine/riskservice)
+• run $mongod from ~/src/gospace/src/github.com/intervention-engine/ie
 
 
-
-
-Note: The IE Patient Generator script will prompt the user to ask for the url of the server that the patients should be uploaded to. With that said, it was tested on a \ilocal\i Intervention Engine Server. To run on an external Intervention Server
+Note: The IE Patient Generator script will prompt the user to ask for the url of the server that the patients should be uploaded to. With that said, it was tested on a \ilocal\i Intervention Engine Server. To run on an external IE Server, the 'if' statement in line 46 will need to be changed from "localhost:3001" to the url of the external server. This hardcoding was just to deal with Intervention Engine's authorization requirement, and just changing this url should be the only necessary change if running on an external \iIntervention Engine\i server.
 
 
 # License

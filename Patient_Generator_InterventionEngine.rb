@@ -67,6 +67,7 @@ until createdPatientCounter == desiredPatientCount
 #The following 'begin' is used for the 'rescue' at the bottom of the script that stops the script when an error occurs and opens binding.pry
 begin
 
+#The following code was used to implement a timeout error/rescue but so far it has been unecessary and has only caused problems to I am commenting it out for now
 ##This allows the script to continue to run if it gets stuck for some reason (I have not yet identified the reason it gets stuck)
 ##The script should not take more than ~5 seconds, but I set it to 30 seconds in case the server is slow
 begin
@@ -2731,6 +2732,7 @@ puts "--------------------------------------------------------------------------
 #This closes the 'Timeout' loop
 end
 
+#The following code was used to implement a timeout error/rescue but so far it has been unecessary and has only caused problems to I am commenting it out for now
 ##This code prevents the script from getting stuck (sometimes it just loads forever with no output)
 ##This code just exits the script and deletes all resources that were posted before to the server before it got stuck (so there are not like half-patients on the server)
 #rescue Timeout::Error
