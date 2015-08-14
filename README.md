@@ -14,7 +14,7 @@ For the Patient Generator to upload patients to a Smart-on-FHIR server, a few th
 
 • Smart-on-FHIR server (either local or external--see documentation at https://github.com/smart-on-fhir)
 
-• Run this code from "api-server" directory in Desktop
+• Run the following two lines of code from "api-server" directory in Desktop:
 
   • $postgres -D /usr/local/var/postgres
 
