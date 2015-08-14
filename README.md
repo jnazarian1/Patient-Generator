@@ -8,6 +8,21 @@ The script then writes each resource created (often several of each type) to a s
 
 Notice there are two Patient_Generator files: one is compatible with a Smart on FHIR server, the other is compatible with an Intervention Engine server.
 
+# Smart-on-FHIR Server Details
+
+For the Patient Generator to upload patients to a Smart-on-FHIR server, a few things must be running in the background:
+
+
+
+# Intervention-Engine Server Details
+
+For the Patient Generator to upload patients to an Intervention Engine server, a few things must be running in the background:
+
+
+
+
+Note: The IE Patient Generator script will prompt the user to ask for the url of the server that the patients should be uploaded to. With that said, it was tested on a \ilocal\i Intervention Engine Server. To run on an external Intervention Server
+
 
 # License
 
