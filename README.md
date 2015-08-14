@@ -11,24 +11,17 @@ Notice there are two Patient_Generator files: one is compatible with a Smart on 
 # Smart-on-FHIR Server Details
 
 For the Patient Generator to upload patients to a Smart-on-FHIR server, a few things must be running in the background:
-
 • Smart-on-FHIR server (either local or external--see documentation at https://github.com/smart-on-fhir)
-
 • Run this code from "api-server" directory in Desktop
-
   • $postgres -D /usr/local/var/postgres
-
   • $./grailsw run-app
 
 
 # Intervention-Engine Server Details
 
 For the Patient Generator to upload patients to an Intervention Engine server, a few things must be running in the background:
-
 • Intervention Engine server (either local or external--see documentation at https://github.com/intervention-engine/ie)
-
 • Risk Service Server (see documentation at https://github.com/intervention-engine/riskservice)
-
 • run $mongod from ~/src/gospace/src/github.com/intervention-engine/ie
 
 
