@@ -2756,7 +2756,8 @@ end
 rescue Exception => e
   puts "AN ERROR OCCURRED: #{e}"
   puts e.backtrace
-  binding.pry
+  #The following line was to open binding.pry for testing purposes
+  #binding.pry
   raise e
 end
 
